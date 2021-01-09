@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title #{docTitle}
+    link(rel="stylesheet", href="/css/main.css")
+    link(rel="stylesheet", href="/css/product.css")
+  body
+    header.main-header
+      nav.main-header__nav
+        ul.main-header__item-list
+          li.main-header__item
+            a.active(href="/") Shop
+          li.main-header__item
+            a(href="admin/add-product") Add Product
+    main
+      if prods.length > 0
+        .grid
+          each product in prods
+            article.card.product-item
+              header.card__header
+                h1.product__title #{product.title}
+              .card__image
+                img(src="https://lh3.googleusercontent.com/proxy/OPDLhcLnDqMWanAiol0g1AoxjUEsgXRDj7-volWT9HpOO902fH9PfDq4TOzAQXaZXzmluKW-wQduWy32A6E5yL01IlT0T96yUpo73_PehPxOcMoMH96dolQ92Gx-vnvuHrkQ6oBVGmAsOU3J7nCMC_-U9kwayKq9pQY", alt="A Book")
+              .card__content
+                h2.product__price $19.99
+                p.product__description A very interesting book about so may even more interesting things!
+              .card__actions
+                button.btn Add to Cart
+      else
+        h1 No Product!
